@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+void toh(int,char,char,char);
+
+int main()
+{
+	system("clear");
+	int n;
+	printf("\nEnter the number of disks:\t");
+	scanf("%d",&n);
+	printf("\nTower of hanoi involved moves:\n");
+	toh(n,'A','C','B');
+return 0;
+}
+
+void toh(int n,char frompeg,char topeg,char auxpeg)
+{
+	if(n==1)
+	{
+		printf("\nMOve disk 1 from peg %c to peg %c\n",frompeg,topeg);
+		return;
+	}
+	
+	toh(n-1,frompeg,auxpeg,topeg);
+	printf("\nMOve disk %d from peg %c to peg %c\n",n,frompeg,topeg);
+	toh(n-1,auxpeg,topeg,frompeg);
+}
